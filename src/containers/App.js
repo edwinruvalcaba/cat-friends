@@ -6,43 +6,43 @@ import Scroll from '../components/Scroll';
 import ErrorBoundary from '../components/ErrorBoundary';
 import './App.css';
 
-import  { setSearchField, requestRobots } from '../actions';
+import  { setSearchField, requestCats } from '../actions';
 
 const mapStateToProps = state => {
     return {
-        searchField: state.searchRobots.searchField,
-        robots: state.requestRobots.robots,
-        isPending: state.requestRobots.isPending,
-        error: state.requestRobots.error
+        searchField: state.searchCats.searchField,
+        cats: state.requestCats.cats,
+        isPending: state.requestCats.isPending,
+        error: state.requestCats.error
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
-        onRequestRobots: () => dispatch(requestRobots())
+        onRequestCats: () => dispatch(requestCats())
     }
 }
 
 class App extends Component {
     componentDidMount() {
-        this.props.onRequestRobots();
+        this.props.onRequestCats();
     }
 
     render() {
-        const { searchField, onSearchChange, robots, isPending } = this.props;
-        const filteredRobots = robots.filter(robot => {
-            return robot.name.toLowerCase().includes(searchField.toLowerCase());
+        const { searchField, onSearchChange, cats, isPending } = this.props;
+        const filteredCats = cats.filter(cat => {
+            return cat.name.toLowerCase().includes(searchField.toLowerCase());
         })
         return isPending ? 
         <h1>Loading</h1> :
         (
             <div className='tc'>
-                <h1 className='f1'>RoboFriends</h1>
+                <h1 className='f1'>Cool Cats & Kittens</h1>
                 <SearchBox searchChange={onSearchChange}/>
                 <Scroll>
                     <ErrorBoundary>
-                        <CardList robots={filteredRobots}/>
+                        <CardList cats={filteredCats}/>
                     </ErrorBoundary>
                 </Scroll>
             </div>
