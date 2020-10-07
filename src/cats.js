@@ -1,4 +1,4 @@
-export const robots = [
+export const cats = [
     {
       id: 1,
       name: 'Leanne Graham',
@@ -31,7 +31,7 @@ export const robots = [
     },
     {
       id: 6,
-      name: 'Mrs. Dennis Schulist',
+      name: 'Dennis Schulist',
       username: 'Leopoldo_Corkery',
       email: 'Karley_Dach@jasper.info'
     },

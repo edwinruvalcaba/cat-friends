@@ -1,43 +1,49 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
 import ErrorBoundary from '../components/ErrorBoundary';
 import './App.css';
 
+import  { setSearchField, requestCats } from '../actions';
+
+const mapStateToProps = state => {
+    return {
+        searchField: state.searchCats.searchField,
+        cats: state.requestCats.cats,
+        isPending: state.requestCats.isPending,
+        error: state.requestCats.error
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
+        onRequestCats: () => dispatch(requestCats())
+    }
+}
+
 class App extends Component {
-    constructor() {
-        super()
-        this.state = {
-            robots: [],
-            searchfield: ''
-        }
-    }
-
     componentDidMount() {
-        fetch('https://jsonplaceholder.typicode.com/users')
-            .then(response => response.json())
-            .then(users => this.setState({ robots: users}));
-    }
-
-    onSearchChange = (event) => {
-        this.setState({ searchfield: event.target.value })
+        this.props.onRequestCats();
     }
 
     render() {
-        const { robots, searchfield } = this.state;
-        const filteredRobots = robots.filter(robot => {
-            return robot.name.toLowerCase().includes(searchfield.toLowerCase());
+        const { searchField, onSearchChange, cats, isPending } = this.props;
+        const filteredCats = cats.filter(cat => {
+            return cat.name.toLowerCase().includes(searchField.toLowerCase());
         })
-        return !robots.length ? 
+        return isPending ? 
         <h1>Loading</h1> :
         (
             <div className='tc'>
                 <h1 className='f1'>Cool Cats & Kittens</h1>
                 <SearchBox searchChange={this.onSearchChange}/>
+
                 <Scroll>
                     <ErrorBoundary>
-                        <CardList robots={filteredRobots}/>
+                        <CardList cats={filteredCats}/>
                     </ErrorBoundary>
                 </Scroll>
             </div>
@@ -45,4 +51,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
