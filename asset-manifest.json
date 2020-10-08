@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/cat-friends/static/css/main.ea969f37.chunk.css",
+    "main.js": "/cat-friends/static/js/main.338d4c73.chunk.js",
+    "main.js.map": "/cat-friends/static/js/main.338d4c73.chunk.js.map",
+    "runtime-main.js": "/cat-friends/static/js/runtime-main.6474270c.js",
+    "runtime-main.js.map": "/cat-friends/static/js/runtime-main.6474270c.js.map",
+    "static/css/2.036b41f9.chunk.css": "/cat-friends/static/css/2.036b41f9.chunk.css",
+    "static/js/2.5b6aa8d8.chunk.js": "/cat-friends/static/js/2.5b6aa8d8.chunk.js",
+    "static/js/2.5b6aa8d8.chunk.js.map": "/cat-friends/static/js/2.5b6aa8d8.chunk.js.map",
+    "index.html": "/cat-friends/index.html",
+    "precache-manifest.3368ab6c90212d667d4347e7a88d0edd.js": "/cat-friends/precache-manifest.3368ab6c90212d667d4347e7a88d0edd.js",
+    "service-worker.js": "/cat-friends/service-worker.js",
+    "static/css/2.036b41f9.chunk.css.map": "/cat-friends/static/css/2.036b41f9.chunk.css.map",
+    "static/css/main.ea969f37.chunk.css.map": "/cat-friends/static/css/main.ea969f37.chunk.css.map",
+    "static/js/2.5b6aa8d8.chunk.js.LICENSE.txt": "/cat-friends/static/js/2.5b6aa8d8.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/cat-friends/static/media/KittenBoldTrial.f543783b.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6474270c.js",
+    "static/css/2.036b41f9.chunk.css",
+    "static/js/2.5b6aa8d8.chunk.js",
+    "static/css/main.ea969f37.chunk.css",
+    "static/js/main.338d4c73.chunk.js"
+  ]
+}
